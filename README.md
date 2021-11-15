@@ -43,7 +43,6 @@ See `deploy.yml`
 **Add secrets**
 
 ```
-ALICE_ADDRESS
 ALICE_ACCOUNT_PHRASE
 SERVERLESS_ACCESS_KEY
 ```

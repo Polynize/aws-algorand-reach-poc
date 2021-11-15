@@ -19,7 +19,7 @@ describe('Routes', () => {
     })
     it('should get account details', async () => {
       const response = await request(server).post('/account/phrase/basic').send({ phrase: secrets.ALICE_ACCOUNT_PHRASE })
-      expect(response.body.data.address).toBe(secrets.ALICE_ADDRESS)
+      expect(response.body.success).toBe(true)
     })
   })
 
