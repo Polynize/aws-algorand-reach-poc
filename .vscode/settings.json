@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.rsh": "javascript"
+    },
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "standard.enable": true,
+    "standard.usePackageJson": true,
+    "standard.treatErrorsAsWarnings": true,
+    "standard.autoFixOnSave": true
+}

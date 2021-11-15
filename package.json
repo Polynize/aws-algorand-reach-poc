@@ -1,0 +1,27 @@
+{
+  "name": "reach-algo-testnet-rps",
+  "dependencies": {
+    "@reach-sh/stdlib": "^0.1.6-rc.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.3.0",
+    "serverless": "^2.59.0",
+    "standard": "^16.0.3",
+    "supertest": "^6.1.6"
+  },
+  "author": "Simon Hutchison",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "testmon": "jest --watchAll",
+    "lint": "eslint --ignore-path .gitignore --ext ."
+  }
+}
