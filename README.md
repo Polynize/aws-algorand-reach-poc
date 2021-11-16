@@ -2,6 +2,8 @@
 
 HTTP API bridge from Web2 to Web3 using AWS (API Gateway/Lambda), Algorand (via Reach.sh) and Serverless.com
 
+[Notes on Medium](https://medium.com/polynize/aws-integration-to-algorand-blockchain-using-reach-bd80e32c057f)
+
 ## Windows Setup
 
 Follow setup instructions here: https://docs.reach.sh/guide-windows.html
