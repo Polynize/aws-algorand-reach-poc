@@ -8,6 +8,7 @@ async function getAccount ({ phrase }) {
       return null
     }
     acc = await reach.newAccountFromMnemonic(phrase)
+    // console.log('acc addr', acc?.networkAccount?.addr)
   } catch (err) {
     console.log('GetAccounts failed', err)
   }
@@ -41,6 +42,7 @@ async function getBalanceAsString ({ acc }) {
 async function getBalance ({ acc }) {
   try {
     const balanceStr = await getBalanceAsString({ acc })
+    console.log('acc addr', acc?.networkAccount?.addr, 'balance', balanceStr)
     return parseFloat(balanceStr)
   } catch (err) {
     console.log('Failed to parse balance.')

@@ -13,7 +13,7 @@ const PROVIDERS = {
 // See https://docs.reach.sh/ref-usage.html
 // Set to ALGO for testnet
 const REACH_CONNECTOR_MODE = REACH_CONNECTOR_MODES.ALGO
-const PROVIDER = PROVIDERS.LocalHost // Set this to connect to another network.
+const PROVIDER = PROVIDERS.TestNet // Set this to connect to another network.
 
 let reach = null
 

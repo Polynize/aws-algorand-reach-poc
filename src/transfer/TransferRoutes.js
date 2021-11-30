@@ -9,7 +9,7 @@ async function transfer ({ req }) {
   const phrasePlatform = secrets.PLATFORM_ACCOUNT_PHRASE ?? ''
   const phraseSender = req?.body?.phraseSender ?? ''
   const phraseReceiver = req?.body?.phraseReceiver ?? ''
-  const transferAmount = req?.body?.transferAmount ?? 1
+  const transferAmount = req?.body?.transferAmount ?? 2
   const fundOnDevnet = req?.body?.fundOnDevnet ?? false
 
   const accPlatform = await getAccount({ phrase: phrasePlatform })
@@ -19,9 +19,11 @@ async function transfer ({ req }) {
   // For testing, fund the accounts.
   if (fundOnDevnet) {
     if (reach.canFundFromFaucet()) {
-      // console.log('Fund accounts...')
       const senderBalance = await getBalance({ acc: accSender })
-      if (senderBalance < transferAmount) {
+      const receiverBalance = await getBalance({ acc: accReceiver })
+      // console.log('Need to fund accounts? senderBalance', senderBalance, 'transferAmount', transferAmount, 'receiverBalance', receiverBalance)
+      if (senderBalance < transferAmount || receiverBalance < TransferService.PLATFORM_FEE) {
+        console.log('Attempt to fund accounts... senderBalance', senderBalance, '< transferAmount', transferAmount)
         await Promise.all([
           fundAccount({ acc: accPlatform, amount: 10 }),
           fundAccount({ acc: accSender, amount: 10 }),

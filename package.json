@@ -23,6 +23,7 @@
   "author": "Simon Hutchison",
   "license": "MIT",
   "scripts": {
+    "devnet": "export REACH_CONNECTOR_MODE=ALGO && ./reach down && ./reach devnet",
     "test": "jest",
     "reach:build:transfer": "./reach compile ./src/transfer/transfer.rsh && node ./node_modules/@babel/cli/bin/babel --plugins @babel/plugin-transform-modules-commonjs ./src/transfer/build/transfer.main.mjs > ./src/transfer/build/transfer.cjs.js",
     "testmon": "jest --watchAll",
