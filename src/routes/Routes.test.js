@@ -8,6 +8,17 @@ describe('Routes', () => {
 
   beforeAll(async () => { })
 
+  describe('Reach Programs', () => {
+    describe('Transfer', () => {
+      it('Should transfer funds from Alice to Bob', async () => {
+        const response = await request(server).post('/contract/transfer/platform').send({ fundOnDevnet: true, phraseSender: secrets.ALICE_ACCOUNT_PHRASE, phraseReceiver: secrets.BOB_ACCOUNT_PHRASE })
+        console.log('response.body', response.body)
+        expect(response.body.success).toBe(true)
+      })
+    })
+  })
+
+  /*
   describe('GetAccount', () => {
     it('should fail to get account details for blank phrase', async () => {
       const response = await request(server).post('/account/phrase/basic').send({ phrase: '' })
@@ -36,5 +47,5 @@ describe('Routes', () => {
       const response = await request(server).post('/account/phrase/balance').send({ phrase: secrets.ALICE_ACCOUNT_PHRASE })
       expect(response.body.data.balance).toBeGreaterThanOrEqual(0)
     })
-  })
+  }) */
 })

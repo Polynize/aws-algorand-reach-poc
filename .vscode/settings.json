@@ -9,5 +9,10 @@
     "standard.enable": true,
     "standard.usePackageJson": true,
     "standard.treatErrorsAsWarnings": true,
-    "standard.autoFixOnSave": true
+    "standard.autoFixOnSave": true,
+    "standard.options": {
+        "ignore": [
+            "**/*.rsh"
+        ]
+    }
 }

@@ -3,6 +3,7 @@ const cors = require('cors')
 
 // Seperate API routes from business logic
 const AlgoRoutes = require('../account/AccountRoutes')
+const TransferRoutes = require('../transfer/TransferRoutes')
 
 // Must pass back an object
 // Must include { success: true | false } at minimum.
@@ -19,6 +20,10 @@ module.exports.Initialize = function () {
   server.post('/account/phrase/basic', async (req, res) => await ret({ res, req, func: AlgoRoutes.getAccount }))
   // Get balance details from phrase
   server.post('/account/phrase/balance', async (req, res) => await ret({ res, req, func: AlgoRoutes.getBalance }))
+
+  // # Smart Contracts
+  // Transfer funds with platform fee
+  server.post('/contract/transfer/platform', async (req, res) => await ret({ res, req, func: TransferRoutes.transfer }))
 
   // Must be after all other routes.
   // Catch all

@@ -3,5 +3,7 @@
  * Fund accounts: https://testnet.algoexplorer.io/dispenser
  */
 module.exports = {
-  ALICE_ACCOUNT_PHRASE: 'chef daughter double ...'
+  PLATFORM_ACCOUNT_PHRASE: '...',
+  ALICE_ACCOUNT_PHRASE: '...',
+  BOB_ACCOUNT_PHRASE: '...'
 }

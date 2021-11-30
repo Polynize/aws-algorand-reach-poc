@@ -1,4 +1,4 @@
-const reach = require('./Reach').configure()
+const reach = require('../utils/Reach').getReach()
 
 async function getAccount ({ phrase }) {
   let acc = null
@@ -12,6 +12,24 @@ async function getAccount ({ phrase }) {
     console.log('GetAccounts failed', err)
   }
   return acc
+}
+
+// Funding only possible on devnet and maybe testnet?
+// See https://docs.reach.sh/ref-usage.html  (reach devnet)
+// Note amount of 1 is 1 million (1,000,000 MicroAlgo)
+async function fundAccount ({ acc, amount }) {
+  const amountInCurrency = reach.parseCurrency(amount)
+  try {
+    if (!acc) {
+      console.log('FundAccount failed, invalid account')
+      return false
+    }
+    await reach.fundFromFaucet(acc, amountInCurrency)
+  } catch (err) {
+    console.log('FundAccount failed', err)
+    return false
+  }
+  return true
 }
 
 async function getBalanceAsString ({ acc }) {
@@ -32,5 +50,6 @@ async function getBalance ({ acc }) {
 
 module.exports = {
   getAccount,
+  fundAccount,
   getBalance
 }
