@@ -11,7 +11,7 @@ describe('Routes', () => {
   describe('Reach Programs', () => {
     describe('Transfer', () => {
       it('Should transfer funds from Alice to Bob', async () => {
-        const response = await request(server).post('/contract/transfer/platform').send({ fundOnDevnet: false, phraseSender: secrets.ALICE_ACCOUNT_PHRASE, phraseReceiver: secrets.BOB_ACCOUNT_PHRASE })
+        const response = await request(server).post('/contract/transfer/platform').send({ fundOnDevnet: true, phraseSender: secrets.ALICE_ACCOUNT_PHRASE, phraseReceiver: secrets.BOB_ACCOUNT_PHRASE })
         console.log('response.body', response.body)
         expect(response.body.success).toBe(true)
       })
